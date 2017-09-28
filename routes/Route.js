@@ -9,4 +9,4 @@ module.exports = function (app) {
 
 
     app.get('/api/lb/edge/subscribe',loadBalancerController.findMaster)
-}
+};

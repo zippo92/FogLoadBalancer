@@ -17,7 +17,6 @@ function subscribeFn(req, res) {
     if(req.body.type === "MASTER")
         masterServer = ip;
 
-
     console.log(masterServer);
 
 }

@@ -8,6 +8,7 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "4.13.x",
+    "request": "^2.83.0",
     "require": "^2.4.20"
   },
   "repository": {},
