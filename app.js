@@ -3,6 +3,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
+var ip = require('ip');
 
 // create a new express server
 var app = express();
@@ -19,5 +20,5 @@ require('./routes/Route')(app);
 // start server on the specified port and binding host
 app.listen(port, '0.0.0.0', function() {
   // print a message when the server starts listening
-  console.log("server starting on localhost");
+  console.log("server starting on localhost. Ip: "+ip.address());
 });

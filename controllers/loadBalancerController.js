@@ -18,6 +18,7 @@ function subscribeFn(req, res) {
         masterServer = ip;
 
     console.log(masterServer);
+    res.send({status: 'ACK'});
 
 }
 
@@ -30,7 +31,4 @@ function findMasterFn(req, res)
 
     else
         res.send(masterServer);
-
-
-
 }
