@@ -23,6 +23,7 @@ function subscribeFn(req, res) {
 
 
 function findMasterFn(req, res) {
+    console.log("Searching master...");
     if(masterServer.getMasterServer() === null)
         res.send("error, we have no master");
 
