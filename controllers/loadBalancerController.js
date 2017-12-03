@@ -16,6 +16,7 @@ function subscribeFn(req, res) {
 
     if (req.body.type === "MASTER") {
         console.log(ip);
+        master.setMasterServerIp(ip);
         res.send({status: 'ACK'});
 
     }
