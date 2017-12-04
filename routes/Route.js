@@ -3,10 +3,10 @@
  */
 module.exports = function (app) {
 
-    var loadBalancerController = require('../controllers/loadBalancerController');
+    var gatewayController = require('../controllers/FogGatewayController');
 
-    app.post('/api/lb/edge/subscribe',loadBalancerController.subscribe);
+    app.post('/api/lb/edge/subscribe',gatewayController.subscribe);
 
 
-    app.get('/api/lb/edge/subscribe',loadBalancerController.findMaster)
+    app.get('/api/lb/edge/subscribe',gatewayController.findMaster)
 };
