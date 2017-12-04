@@ -15,14 +15,29 @@ function subscribeFn(req, res) {
     var ip = (req.headers['x-forwarded-for'] || '').split(',')[0] || req.connection.remoteAddress;
 
     if (req.body.type === "MASTER") {
-        console.log(ip);
-        master.setMasterServerIp(ip);
-        res.send({status: 'ACK'});
+        var masterIp = master.getMasterServerIp();
 
+
+        if (!masterIp || masterIp === ip) {
+            master.setMasterServerIp(ip);
+            console.log("Subscribe by " + ip);
+            res.send({status: 'ACK'});
+        }
+        else
+            res.send({
+                status: "MASTER_ALREADY_EXISTS",
+                masterIp: masterIp
+
+            });
+    }
+    else if(req.body.type === "PROCLAMATION") {
+
+        master.setMasterServerIp(ip);
+        console.log("Proclamation by: " + ip);
+        res.send({status: 'ACK'});
     }
     else
         res.send({status: "BAD_REQUEST"});
-
 
 }
 
@@ -39,3 +54,6 @@ function findMasterFn(req, res) {
             masterIp: masterIp
         });
 }
+
+
+
